@@ -1,10 +1,12 @@
+import { API_URL } from "../const";
+
 export const Product = ({ data }) => {
 	return (
 		<li className="products__item">
 			<article className="product">
 				<img
 					className="product__img"
-					src={data.image}
+					src={`${API_URL}${data.img}`}
 					alt={data.title}
 				/>
 				<div className="product__content">
