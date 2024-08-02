@@ -500,6 +500,33 @@ a.header__menu-link.active {
 	grid-column: 1 / -1;
 }
 
+.order__label {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.order__label:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.order__radio {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #64099b;
+  border-radius: 24px;
+  background-color: transparent;
+  outline: none;
+}
+
+.order__radio:checked {
+  background-color: #64099b;
+}
+
+
 /* Order__payment */
 
 .order__payment {
