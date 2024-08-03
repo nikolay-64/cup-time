@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 
 export const Header = () => {
+	const location = useLocation();
+
+	const getActiveClass = (category) => {
+		const currentCategory = new URLSearchParams(location.search).get("category");
+
+		return currentCategory === category ? "active" : "";
+	}
+
 	return (
 		<header className="header">
 			<div className="container header__container">
@@ -11,29 +19,44 @@ export const Header = () => {
 				<nav className="header__nav">
 					<ul className="header__menu">
 						<li className="header__menu-item">
-							<a className="header__menu-link active" href="#!">
+							<Link
+								className={`header__menu-link ${getActiveClass("tea")}`}
+								to="/products?category=tea"
+							>
 								Чай
-							</a>
+							</Link>
 						</li>
 						<li className="header__menu-item">
-							<a className="header__menu-link" href="#!">
+							<Link
+								className={`header__menu-link ${getActiveClass("coffee")}`}
+								to="/products?category=coffee"
+							>
 								Кофе
-							</a>
+							</Link>
 						</li>
 						<li className="header__menu-item">
-							<a className="header__menu-link" href="#!">
+							<Link
+								className={`header__menu-link ${getActiveClass("teapots")}`}
+								to="/products?category=teapots"
+							>
 								Чайники
-							</a>
+							</Link>
 						</li>
 						<li className="header__menu-item">
-							<a className="header__menu-link" href="#!">
+							<Link
+								className={`header__menu-link ${getActiveClass("cezves")}`}
+								to="/products?category=cezves"
+							>
 								Турки
-							</a>
+							</Link>
 						</li>
 						<li className="header__menu-item">
-							<a className="header__menu-link" href="#!">
+							<Link
+								className={`header__menu-link ${getActiveClass("other")}`}
+								to="/products?category=other"
+							>
 								Прочее
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</nav>
