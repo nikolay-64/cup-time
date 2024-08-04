@@ -13,7 +13,7 @@ export const Main = () => {
 					path="/products"
 					element={
 						<>
-							<Promo />
+							<Promo path='/' element={<Navigate to="/products?category=cofee" />} />
 							<Products />
 						</>
 					}

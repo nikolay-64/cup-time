@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import { productTitles } from '../const';
 import { useState } from 'react';
+import { SkeletonLoader } from './SkeletonLoader';
 
 export const Products = () => {
 	const [seachParams] = useSearchParams();
@@ -13,8 +14,9 @@ export const Products = () => {
 	const [title, setTitle] = useState('');
 
 	useEffect(() => {
-		const productsTitle = productTitles.find(item => item.namecategory 
-			=== category);
+		const productsTitle = productTitles.find(
+			(item) => item.namecategory === category
+		);
 		setCategory(category);
 		setTitle(productsTitle.nametitle);
 	}, [category, setCategory]);
@@ -24,9 +26,11 @@ export const Products = () => {
 			<div className="container">
 				<h2 className="products__title">{title}</h2>
 				<ul className="products__list">
-					{products.map((item) => (
-						<Product key={item.id} data={item} />
-					))}
+					{products.length ? (
+						products.map((item) => <Product key={item.id} data={item} />)
+					) : (
+						<SkeletonLoader />
+					)}
 				</ul>
 			</div>
 		</section>
