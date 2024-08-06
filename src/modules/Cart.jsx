@@ -12,7 +12,7 @@ export const Cart = () => {
 	return (
 		<section className="cart">
 			<div className="container cart__container">
-				<h2 className="cart__title">Корзина ({cart.length})</h2>
+				<h2 className="cart__title">Корзина ({cart ? cart.reduce((acc, item) => acc + item.quantity, 0) : 0})</h2>
 
 				<ul className="cart__items">
 					{cart ? (
