@@ -47,6 +47,7 @@ export const Header = () => {
 									'coffee'
 								)}`}
 								to="/products?category=coffee"
+								onClick={closeMenu}
 							>
 								Кофе
 							</Link>
@@ -57,6 +58,7 @@ export const Header = () => {
 									'teapots'
 								)}`}
 								to="/products?category=teapots"
+								onClick={closeMenu}
 							>
 								Чайники
 							</Link>
@@ -67,6 +69,7 @@ export const Header = () => {
 									'cezves'
 								)}`}
 								to="/products?category=cezves"
+								onClick={closeMenu}
 							>
 								Турки
 							</Link>
@@ -77,6 +80,7 @@ export const Header = () => {
 									'other'
 								)}`}
 								to="/products?category=other"
+								onClick={closeMenu}
 							>
 								Прочее
 							</Link>
