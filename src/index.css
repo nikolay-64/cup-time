@@ -14,6 +14,7 @@ html {
 }
 
 body {
+	min-width: 320px;
 	font-family: 'Inter', sans-serif;
 	background-color: #fff;
 	font-size: 20px;
@@ -89,8 +90,8 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .header__container {
-	border-radius: 6px;
 	max-width: 1352px;
+	border-radius: 6px;
 	backdrop-filter: blur(60px);
 	background: rgba(108, 185, 171, 0.7);
 	padding: 12px 26px;
@@ -133,6 +134,22 @@ input[type='number']::-webkit-outer-spin-button {
 	padding: 10px 4px 3px;
 }
 
+.header__control {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.header__close-btn {
+	display: none;
+}
+
+.header__burger {
+	display: none; /* Скрыть кнопку-бургер по умолчанию */
+	border: none;
+	background-color: transparent;
+}
+
 /* Promo */
 
 .promo {
@@ -141,6 +158,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .promo__container {
+	min-height: 600px;
 	padding-top: 210px;
 	padding-bottom: 80px;
 	background-image: url('./img/bg-img.png');
@@ -194,7 +212,6 @@ input[type='number']::-webkit-outer-spin-button {
 	overflow: hidden;
 	font-size: 0;
 	background: #f2f9f7;
-	min-height: 600px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -211,10 +228,11 @@ input[type='number']::-webkit-outer-spin-button {
 
 	display: flex;
 	flex-direction: column;
+	gap: 4px;
 }
 
 .product__title {
-	flex-grow: 1;
+	height: 62px;
 	font-weight: 400;
 	font-size: 24px;
 	margin-top: 0;
@@ -566,49 +584,33 @@ input[type='number']::-webkit-outer-spin-button {
 
 /* Modal */
 
-.modal__content-wrapper {
+/* .modal__content-wrapper {
 	display: grid;
 	padding: 40px 24px;
 	max-width: 360px;
 	gap: 50px;
-}
+} */
 
-.modal__title {
-	margin: 0;
-	font-weight: 400;
-	font-size: 24px;
-	line-height: 1.24;
-	color: #1d1c1d;
-}
-
-.modal__price {
-	margin: 0;
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 1.24;
-	color: #1d1c1d;
-}
-
-.modal__desc-item {
+/* .modal__desc-item {
 	display: flex;
 	justify-content: space-between;
 
 	font-size: 16px;
 	color: #b8b8b8;
-}
+} */
 
-.modal__desc-item span:nth-child(2n) {
+/* .modal__desc-item span:nth-child(2n) {
 	font-weight: 400;
 	color: #1d1c1d;
-}
+} */
 
-.modal-item__quantity {
+/* .modal-item__quantity {
 	display: flex;
 	gap: 4px;
 	flex-shrink: 0;
-}
+} */
 
-.modal-item__quantity-button {
+/* .modal-item__quantity-button {
 	background-color: transparent;
 	border-radius: 4px;
 	border: 1px solid #b8b8b8;
@@ -617,24 +619,24 @@ input[type='number']::-webkit-outer-spin-button {
 	cursor: pointer;
 	background-repeat: no-repeat;
 	background-position: center;
-}
+} */
 
-.modal-item__quantity-button__minus {
+/* .modal-item__quantity-button__minus {
 	background-image: url('./img/minus.svg');
-}
+} */
 
-.modal-item__quantity-button__plus {
+/* .modal-item__quantity-button__plus {
 	background-image: url('./img/plus.svg');
-}
+} */
 
-.modal-item__quantity-input {
+/* .modal-item__quantity-input {
 	background: transparent;
 	text-align: center;
 	border: none;
 	outline: none;
-}
+} */
 
-.modal__close-button {
+/* .modal__close-button {
 	position: absolute;
 	top: 20px;
 	right: 10px;
@@ -647,11 +649,10 @@ input[type='number']::-webkit-outer-spin-button {
 	background-repeat: no-repeat;
 	border: 0;
 	outline: none;
-}
+} */
 
-.modal__add-button {
-
-}
+/* .modal__add-button {
+} */
 
 .skeleton-wrapper {
 	width: 100%;
@@ -706,11 +707,8 @@ input[type='number']::-webkit-outer-spin-button {
 		padding: 12px 22px;
 	}
 
-	.header__menu-link.active {
-		color: #fff;
-	}
-
 	.promo__container {
+		min-height: 484px;
 		padding-top: 172px;
 		padding-bottom: 60px;
 		background-image: url('./img/bg-img-1024.png');
@@ -728,7 +726,11 @@ input[type='number']::-webkit-outer-spin-button {
 	}
 
 	.product__content {
-		padding: 24px;
+		gap: 24px;
+	}
+
+	.products {
+		padding: 80px 0;
 	}
 
 	.footer__menu {
@@ -830,6 +832,7 @@ input[type='number']::-webkit-outer-spin-button {
 	}
 
 	.product__title {
+		height: 48px;
 		font-size: 20px;
 		text-wrap: balance;
 	}
@@ -946,33 +949,19 @@ input[type='number']::-webkit-outer-spin-button {
 		padding: 24px 0 0;
 	}
 
-	.modal__content-wrapper {
+	/* .modal__content-wrapper {
 		max-width: 100%;
 		width: 100%;
 		padding: 24px;
-	}
+	} */
 
-	.modal__title {
-		font-size: 20px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		line-clamp: 2;
-		-webkit-box-orient: vertical;
-	}
-
-	.modal__price {
-		font-size: 16px;
-	}
-
-	.modal__desc-item {
+	/* .modal__desc-item {
 		font-size: 12px;
-	}
+	} */
 
-	.modal__close-button {
+	/* .modal__close-button {
 		right: 13px;
-	}
+	} */
 }
 
 @media (max-width: 660px) {
@@ -991,11 +980,46 @@ input[type='number']::-webkit-outer-spin-button {
 	}
 
 	.header__nav {
-		display: none;
+		display: none; /* Скрыть навигацию на мобильных устройствах */
+	}
+
+	.header__burger {
+		display: block; /* Показать кнопку-бургер на мобильных устройствах */
+		width: 28px;
+		height: 28px;
+		cursor: pointer;
+	}
+
+	.header__nav.active {
+		display: flex; /* Показать навигацию при активации бургера */
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		overflow: hidden;
+		inset: 0;
+		height: 100vh;
+		background-color: #6cb9ab;
+	}
+
+	.header__menu {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header__close-btn {
+		position: absolute;
+		top: 20px;
+		right: 16px;
+		display: block; /* Показать кнопку-бургер на мобильных устройствах */
+		width: 28px;
+		height: 28px;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
 	}
 
 	.promo__container {
-		min-height: auto;
+		min-height: 420px;
 		padding-top: 90px;
 		padding-bottom: 250px;
 		background-size: 145px;
@@ -1033,6 +1057,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 	.product__title {
 		font-size: 16px;
+		height: 40px;
 	}
 
 	.footer__container {
@@ -1102,13 +1127,8 @@ input[type='number']::-webkit-outer-spin-button {
 		max-width: 100%;
 	}
 
-	.ReactModal__Content.ReactModal__Content--after-open {
-		flex-direction: column;
-		padding: 0;
-	}
-
-	.modal__content-wrapper {
+	/* .modal__content-wrapper {
 		max-width: unset;
 		padding: 16px;
-	}
+	} */
 }
