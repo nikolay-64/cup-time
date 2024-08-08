@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useState } from 'react';
+import { useProducts } from '../context/ProductContext';
 
 export const Header = () => {
 	const location = useLocation();
 	const { cart } = useCart();
+	const { categories } = useProducts();
 	const [isMenuOpen, setIsOpenMenu] = useState(false);
 	const closeMenu = () => {
 		setIsOpenMenu(false);
@@ -30,61 +32,16 @@ export const Header = () => {
 
 				<nav className={`header__nav ${isMenuOpen ? 'active' : ''}`}>
 					<ul className="header__menu">
-						<li className="header__menu-item">
-							<Link
-								className={`header__menu-link ${getActiveClass(
-									'tea'
-								)}`}
-								to="/products?category=tea"
-								onClick={closeMenu}
-							>
-								Чай
-							</Link>
-						</li>
-						<li className="header__menu-item">
-							<Link
-								className={`header__menu-link ${getActiveClass(
-									'coffee'
-								)}`}
-								to="/products?category=coffee"
-								onClick={closeMenu}
-							>
-								Кофе
-							</Link>
-						</li>
-						<li className="header__menu-item">
-							<Link
-								className={`header__menu-link ${getActiveClass(
-									'teapots'
-								)}`}
-								to="/products?category=teapots"
-								onClick={closeMenu}
-							>
-								Чайники
-							</Link>
-						</li>
-						<li className="header__menu-item">
-							<Link
-								className={`header__menu-link ${getActiveClass(
-									'cezves'
-								)}`}
-								to="/products?category=cezves"
-								onClick={closeMenu}
-							>
-								Турки
-							</Link>
-						</li>
-						<li className="header__menu-item">
-							<Link
-								className={`header__menu-link ${getActiveClass(
-									'other'
-								)}`}
-								to="/products?category=other"
-								onClick={closeMenu}
-							>
-								Прочее
-							</Link>
-						</li>
+						{Object.entries(categories).map(([key, value]) => (
+							<li key={key} className="header__menu-item">
+								<Link
+									className={`header__menu-link ${getActiveClass(key)}`}
+									to={`/products?category=${key}`}
+									onClick={closeMenu}>
+									{value}
+								</Link>
+							</li>
+						))}
 					</ul>
 
 					<button className="header__close-btn" onClick={closeMenu}>
