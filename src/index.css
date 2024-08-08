@@ -32,6 +32,7 @@ ul {
 a {
 	text-decoration: none;
 	color: inherit;
+	outline: none;
 }
 
 img {
@@ -85,8 +86,17 @@ input[type='number']::-webkit-outer-spin-button {
 	color: #fff;
 }
 
+.header__menu-link {
+	border-bottom: 2px solid transparent;
+	transition: border-bottom .3s ease-in-out;
+}
+
 .header__menu-link.active {
 	color: #64099b;
+}
+
+.header__menu-link:hover {
+	border-bottom-color: #64099b;
 }
 
 .header__container {
@@ -279,6 +289,14 @@ input[type='number']::-webkit-outer-spin-button {
 	color: #64099b;
 }
 
+.footer__menu-link:focus-visible {
+	color: #64099b;
+}
+
+.footer__menu-link.active {
+	color: #64099b;
+}
+
 .footer__info {
 	width: 254px;
 
@@ -291,11 +309,6 @@ input[type='number']::-webkit-outer-spin-button {
 .footer__copyright {
 	margin-top: 0;
 	margin-bottom: 17px;
-}
-
-.footer__description {
-	margin-top: 0;
-	margin-bottom: 3px;
 }
 
 .footer__developer {
@@ -314,6 +327,10 @@ input[type='number']::-webkit-outer-spin-button {
 	color: #64099b;
 }
 
+.footer__developer-link:focus-visible {
+	color: #64099b;
+}
+
 .footer__contacts {
 	display: flex;
 	flex-direction: column;
@@ -325,10 +342,30 @@ input[type='number']::-webkit-outer-spin-button {
 	margin-bottom: 16px;
 }
 
+.footer__email:focus-visible {
+	color: #64099b;
+}
+
 .footer__social {
 	display: flex;
 	gap: 12px;
 	height: 32px;
+}
+
+.footer__social-link {
+	display: block;
+	color: #fff;
+	transition: color 0.3s ease-in-out;
+	line-height: 0;
+	outline: none;
+}
+
+.footer__social-link:hover {
+	color: #64099b;
+}
+
+.footer__social-link:focus-visible {
+	color: #64099b;
 }
 
 /* Cart */

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { API_URL } from '../const';
 import { useCart } from '../context/CartContext';
@@ -9,6 +9,10 @@ Modal.setAppElement('#root');
 export const ProductModal = ({ isOpen, onRequestClose, data }) => {
 	const [quantity, setQuantity] = useState(1);
 	const { addToCart } = useCart();
+
+		useEffect(() => {
+			document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+		}, [isOpen]);
 
 	if (!data) {
 		return null;

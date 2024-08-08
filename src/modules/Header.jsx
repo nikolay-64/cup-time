@@ -1,26 +1,24 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useState } from 'react';
 import { useProducts } from '../context/ProductContext';
+import { useEffect } from 'react';
+import { getActiveClass } from '../helpers';
 
 export const Header = () => {
-	const location = useLocation();
 	const { cart } = useCart();
 	const { categories } = useProducts();
 	const [isMenuOpen, setIsOpenMenu] = useState(false);
+
+	useEffect(() => {
+		document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+	}, [isMenuOpen])
+
 	const closeMenu = () => {
 		setIsOpenMenu(false);
 	};
 	const openMenu = () => {
 		setIsOpenMenu(true);
-	};
-
-	const getActiveClass = (category) => {
-		const currentCategory = new URLSearchParams(location.search).get(
-			'category'
-		);
-
-		return currentCategory === category ? 'active' : '';
 	};
 
 	return (
@@ -44,7 +42,7 @@ export const Header = () => {
 						))}
 					</ul>
 
-					<button className="header__close-btn" onClick={closeMenu}>
+					<button className="header__close-btn" onClick={closeMenu} aria-label='Закрыть меню'>
 						<svg
 							width="28"
 							height="28"

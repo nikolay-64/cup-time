@@ -9,7 +9,7 @@ import { SkeletonLoader } from './SkeletonLoader';
 
 export const Products = () => {
 	const [seachParams] = useSearchParams();
-	const { products, setCategory } = useProducts();
+	const { products, setCategory, productsRef } = useProducts();
 	const category = seachParams.get('category');
 	const [title, setTitle] = useState('');
 
@@ -22,7 +22,7 @@ export const Products = () => {
 	}, [category, setCategory]);
 
 	return (
-		<section className="products">
+		<section className="products" id="#products" ref={productsRef}>
 			<div className="container">
 				<h2 className="products__title">{title}</h2>
 				<ul className="products__list">
