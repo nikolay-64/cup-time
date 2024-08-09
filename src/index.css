@@ -440,11 +440,11 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .cart-item__quantity-button__minus {
-	background-image: url('./img/minus.svg');
+	background-image: url('/img/minus.svg');
 }
 
 .cart-item__quantity-button__plus {
-	background-image: url('./img/plus.svg');
+	background-image: url('/img/plus.svg');
 }
 
 .cart-item__quantity-input {
@@ -1157,9 +1157,4 @@ input[type='number']::-webkit-outer-spin-button {
 		width: 100%;
 		max-width: 100%;
 	}
-
-	/* .modal__content-wrapper {
-		max-width: unset;
-		padding: 16px;
-	} */
 }
