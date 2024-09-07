@@ -308,6 +308,11 @@ input[type='number']::-webkit-outer-spin-button {
 	margin-bottom: 17px;
 }
 
+.footer__description {
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
 .footer__developer {
 	margin-bottom: 3px;
 }
@@ -337,6 +342,11 @@ input[type='number']::-webkit-outer-spin-button {
 .footer__email {
 	display: inline-block;
 	margin-bottom: 16px;
+	transition: color 0.2s ease-in;
+}
+
+.footer__email:hover {
+	color: #64099b;
 }
 
 .footer__email:focus-visible {
